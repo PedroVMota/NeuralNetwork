@@ -1,6 +1,4 @@
-from Layer import Layer
-
-
+from .Layer import Layer
 
 class NeuralNetwork:
     def __init__(

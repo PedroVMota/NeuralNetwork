@@ -1,24 +1,26 @@
-from Utils import *
-
+import Utils
+# utils has theses class = ['NeuralNetwork', 'InputNeuron', 'HiddenNeuron', 'OutputNeuron', 'Layer']
 
 def main():
-    inputNeuron = Layer(2, isInputLayer=True)
-    inputNeuron.Nodes[0].set_value(0.5)
-    inputNeuron.Nodes[1].set_value(-0.3)
-    hiddenLayer = Layer(2)
-    hiddenLayer.Nodes[0].addWeight([0.8, -0.5])
-    hiddenLayer.Nodes[0].set_bias(0.2)
+    # Create a new instance of the Utils class
+    InputNeural = Utils.Layer(2, isInputLayer=True)
+    HiddenNeural = Utils.Layer(2)
+    OutputNeural = Utils.Layer(1, isActivationLayer=True)
 
-    hiddenLayer.Nodes[1].addWeight([-0.6, 0.9])
-    hiddenLayer.Nodes[1].set_bias(-0.2)
+    InputNeural.Nodes[0].outputValue = 0.1
+    InputNeural.Nodes[1].outputValue = 0.2
 
-    outputLayer = Layer(1, isActivationLayer=True)
-    outputLayer.Nodes[0].addWeight([1.2, -1.0])
-    outputLayer.Nodes[0].set_bias(-1.0)
+    HiddenNeural.Nodes[0].weights = [0.1, 0.2]
+    HiddenNeural.Nodes[0].bias = 0.1
 
-    NeuralNetwork(inputNeuron, hiddenLayer, outputLayer).start()
+    HiddenNeural.Nodes[1].weights = [0.1, 0.2]
+    HiddenNeural.Nodes[1].bias = 0.1
+    
 
+    # Create a new instance of the NeuralNetwork class
+    NeuralNetwork = Utils.NeuralNetwork(InputNeural, HiddenNeural, OutputNeural)
 
+    pass
 
 if __name__ == "__main__":
     main()

@@ -1,14 +1,9 @@
-from Neurons import Neuron, InputNeuron, HiddenNeuron, OutputNeuron
+from .Neurons import Neuron, InputNeuron, HiddenNeuron, OutputNeuron
 
 
 
 class Layer:
-    def __init__(
-            self,
-            NumberOfNeurons: int,
-            isInputLayer: bool = False,
-            isActivationLayer: bool = False
-    ):
+    def __init__(self, NumberOfNeurons: int, isInputLayer: bool = False, isActivationLayer: bool = False ):
         self.Nodes: list[Neuron] = []
         self.isInputLayer = isInputLayer
         self.isActivationLayer = isActivationLayer
