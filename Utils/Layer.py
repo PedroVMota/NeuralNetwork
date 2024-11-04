@@ -15,4 +15,12 @@ class Layer:
             else:
                 self.Nodes.append(HiddenNeuron())
                  
-    
+    def forwardPropagation(self, inputs):
+        outputs = []
+        for neuron in self.Nodes:
+            output = neuron.forwardPropagation(inputs)
+            outputs.append(output)
+        return outputs
+
+    def __iter__(self):
+        return iter(self.Nodes)
